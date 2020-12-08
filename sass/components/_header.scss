@@ -1,0 +1,352 @@
+.header {
+  border-bottom: 1px solid #ececec;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  color: #2196f3;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.logo-part {
+  color: $title-text-color;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-list {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 93px;
+    display: flex;
+  }
+}
+
+.nav-item {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+
+.nav-link {
+  padding: 32px 0 32px 0;
+  display: flex;
+
+  transition: $time $cubic;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+
+  color: $title-text-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.nav-link::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: $accent-color;
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  top: 76px;
+  opacity: 0;
+  transition: $time $cubic;
+}
+
+.nav-link.current {
+  color: $accent-color;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: $accent-color;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    top: 76px;
+    opacity: 1;
+    transition: $time $cubic;
+  }
+}
+
+.header-contacts {
+  display: none;
+  margin-left: auto;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+  }
+}
+
+.contact-item {
+  color: $footer-link-color;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (max-width: 767px) {
+    &:last-child {
+      margin-bottom: 60px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    &:last-child {
+      margin-left: 30px;
+    }
+  }
+}
+
+.contact-link {
+  padding-top: 16px;
+  align-items: center;
+  display: flex;
+  transition: $time $cubic;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+
+  color: $primary-text-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 32px 0 32px 0;
+  }
+}
+
+.contact-icon {
+  fill: $primary-text-color;
+  display: flex;
+  margin-right: 10px;
+  transition: $time $cubic;
+
+  .contact-link:hover &,
+  .contact-link:focus & {
+    fill: $accent-color;
+  }
+}
+
+.message {
+  width: 16px;
+  height: 12px;
+}
+
+.smartphone {
+  width: 10px;
+  height: 16px;
+}
+
+// --------------------Mobile Menu--------------
+
+.burger-button {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  transition: $time $cubic;
+
+  &:hover {
+    fill: $accent-color;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .close-menu {
+    display: none;
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-button.is-open .close-menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-button.is-open .open-menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-container.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: unset;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-container {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
+      0px 1px 3px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 500ms linear;
+  }
+}
+@media screen and (max-width: 767px) {
+  .burger-nav {
+    margin-top: 60px;
+    width: 99px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 99px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-item {
+    position: relative;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-link {
+    padding: 20px 0 20px 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.16;
+    letter-spacing: 0.02em;
+    color: #212121;
+    color: $title-text-color;
+    transition: $time $cubic;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: $accent-color;
+      transition: $time $cubic;
+      display: block;
+      border-radius: 2px;
+      top: 25px;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-link.current {
+    color: $accent-color;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: $accent-color;
+      display: block;
+      border-radius: 2px;
+      position: absolute;
+      top: 25px;
+      opacity: 1;
+      transition: $time $cubic;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .burger-contacts {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

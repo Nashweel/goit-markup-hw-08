@@ -1,0 +1,79 @@
+// ------------------Clients----------------
+
+.client {
+  padding: 94px 0;
+}
+
+.client-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 1200px) {
+    flex-wrap: unset;
+  }
+}
+
+.client-title {
+  margin: 0 auto;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+  margin-bottom: 50px;
+}
+
+.client-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% - 4 * 15px) / 2);
+  margin: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 6 * 15px) / 3);
+  }
+
+  @media screen and (min-width: 1200px) {
+    :not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+}
+
+.client-link {
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 210px;
+  height: 90px;
+
+  transition: $time $cubic;
+
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 170px;
+  }
+}
+
+.client-icon {
+  display: flex;
+  fill: #afb1b8;
+  transition: $time $cubic;
+
+  .client-link:hover &,
+  .client-link:focus & {
+    fill: $accent-color;
+  }
+}
